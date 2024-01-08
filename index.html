@@ -1,0 +1,422 @@
+  <!DOCTYPE html>
+  <html>
+  <head>
+  <title>Page Title</title>
+  <style>
+  /*reset*/
+  *{margin:0; box-sizing:border-box; fontifamily:"맑은 고딕";}
+  ul,ol,li {list-style:none; margin:0; padding:0;}
+
+  a {text-decoration: none;}
+
+  header{width:1185px; height:160px; margin:0 auto;}
+  #logo {width:170px; height:70px; float:left; marign:50px 0 0 10px;}
+  #logo > img {width:100%; height:100%;}
+
+  #login {width:295px; height:30px; float:right; marign:20px 30px 0 0px;}
+
+  #login ul {font-size:12px; color:#666;}
+  #login li {float:left; margin:0 5px;}
+  #login li a {text-decoration:none; color:#666;}
+
+  nav{width:1080px; height:40px; float:right; margin:50px 0px 0 0px;}
+  nav > ul {font-size:13px; font-weight:bold;}
+  nav > ul > li {float:left; margin:0 40px;}
+  nav > ul > li > a {text-decoration:none; color:#000;}
+  nav > ul > li > a:hover {color:blue;}
+
+  #slider{width:1475px; height:560px; background-color:tomato; margin:0 auto;}
+  #slider > img {width:100%; height:100%;}
+
+  /* 캐러셀 전체 구조  */
+  .carousel_main {
+  width: 900px; /* 이미지 크기 설정  */
+  
+  position: relative;
+  overflow: hidden;
+  margin: 10px auto;
+  user-select: none;
+  }
+
+  .carousel_wrapper {
+  display: flex;
+  transition: transform 1s;
+  }
+
+  .carousel_slide {
+  flex: 0 0 900px; /* 이미지 크기 설정  */
+  position: relative;
+  margin:10px auto;
+  
+  }
+
+  .carousel_slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  }
+
+  /* 캐러셀 사이드 버튼 */
+  .carousel_button_container {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .carousel_button {
+    width: 50px;
+    height: 50px;
+    color: #fff;
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+
+  .carousel_prev {
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 0px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  .carousel_next {
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 0px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  /* 캐러셀 중앙 버튼 */
+  .carousel_pagination {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+  }
+
+  .carousel_circle {
+      width: 10px;
+      height: 10px;
+      background-color: #aaa;
+      border-radius: 50%;
+      margin: 0 5px;
+      cursor: pointer;
+  }
+
+  .carousel_circle.active {
+      background-color: #333;
+  }
+
+
+  section {width:1280px; height:405px; border:3px solid #666; margin:0 auto;}
+
+  section h3 {fonz-size:20px; margin: 0px 0px 10px;}
+
+  #news {width:345px; height:155px; float:left; margin:30px 0 0 35px;}
+  #news > table {font-size:12px;}
+  #news > table a {height:25px; text-decoration:none; color:#000;}
+
+  #icon {width:455px; height:155px; float:left; margin:30px 0 0 30px;}
+
+  #icon > .iconbox {width:75px; hegiht:75px; float:left;margin:20px 10px 0 0px; text-align:center;}
+  #icon > .iconbox > a > img {width:50px; height:50px;}
+  #icon > .iconbox > span > a {text-decoration:none; color:#000; font-size:12px; display:block; text-align:center;} 
+
+  #brand {width:330px; height:155px; float:left; margin:30px 0 0 35px;}
+
+  #brand > p {font-size:12px;}
+  #brand > p > a {color:#666;}
+  #brand h4 {font-size:15px; margin:10px 0 0 0px;}
+  #brand h4 a {color:#333;}
+
+  #promotion {width:345px; height:150px; float:left;margin:30px 0 0 35px;}
+  #promotion > p > a {color:#666; font-size:12px; float:left; width:200px; height:70px;}
+  #promotion > a > img {float:right; width:100px; height:100px;}
+
+  #camp {width:455px; height:150px; float:left;margin:30px 0 0 35px;}
+  #camp > p > a {color:#666; font-size:12px; text-decoration:none; float:left; width:200px; height:70px;}
+  #camp > a > img {float:right; width:100px; height:100px;}
+
+  #store {width:330px; height:150px; float:left; margin:30px 0 0 35px;}
+  #store > p > a {font-size: 12px; color:#666; text-decoration:none; float:left; width:200px; height:70px;}
+  #store > a > img {float:right; width:100px; height:100px;}
+
+  footer{width:100%; height:145px; background-color:rgb(245, 245, 250); margin:0 auto;}
+  footer #box {width:1240px; height:130px; margin:10px auto;}
+
+  footer #box > ul {width:750px; height:50px; float:left; margin:20px 0 0 40px; color:#666;}
+  footer #box > ul > li {float:left; font-size:12px; margin:5px 10px;}
+  footer #box > ul > li a {float:left; text-decoration:none; color:#666;}
+  footer #box > p {float:left; width:700px; height:50px; line-height:150%; margin:10px 0 0 40px; font-size:12px; color:#666;}
+
+
+  </style>
+
+  </head>
+
+  <body>
+  <header>
+  <div id="logo"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiYe_mnoTVB8JsXhzWOX9pxwKgd9mInDsquQ&usqp=CAU" alt="로고">
+  </div>
+
+  <div id="login">
+    <ul>
+      <li><a href="#">로그인</a></li>
+      <li>|</li>
+      <li><a href="#">회원가입</a></li>
+      <li>|</li>
+      <li><a href="#">Q & A</a></li>
+      <li>|</li>
+      <li><a href="#">LANGUAGE</a></li>
+      <li>|</li>
+    </ul>
+
+  </div>
+
+  <nav>
+    <ul>
+      <li><a href="#">Model</a></li>
+      <li>|</li>
+      <li><a href="#">Driving</a></li>
+      <li>|</li>
+      <li><a href="#">Perfomance</a></li>
+      <li>|</li>
+      <li><a href="#">Services</a></li>
+      <li>|</li>
+      <li><a href="#">Event</a></li>
+      <li>|</li>
+    </ul>
+  </nav>
+
+  </header>
+
+  <div class="carousel_main">
+  <!-- 캐러셀 이미지 삽입 -->
+  <div class="carousel_wrapper">
+      <div class="carousel_slide">
+          <img src="https://blog.kakaocdn.net/dn/bEE2X3/btrN5v6Y3Yl/nrGLHkvUm6RwVwpU9mDKLK/img.png" alt="컴패스" />
+      </div>
+      <div class="carousel_slide">
+          <img src="https://img1.daumcdn.net/thumb/S720x440ht.u/?fname=%2Fmedia%2Fvitraya%2Fauto%2Fimage%2F3ab1f7%2F0004729B12C0BEAEF9A516140FC8512D2719D72D6AC3D8B9C1_OYMQ&scode=media" alt="체로키" />
+      </div>
+      <div class="carousel_slide">
+          <img src="https://pds.joongang.co.kr/news/component/htmlphoto_mmdata/202206/27/1c167d49-dd45-4719-839c-10148211a7d8.jpg" alt="레니게이드" />
+      </div>
+      <div class="carousel_slide">
+          <img src="https://img1.daumcdn.net/thumb/S720x440ht.u/?fname=%2Fmedia%2Fvitraya%2Fauto%2Fimage%2F6e90c6%2F891F68272E2B4B489CFAA0079B0EB4886A6285851AC87674E8_3MHS&scode=media" alt="글래디에이터" />
+      </div>
+  </div>
+
+  <!-- 캐러셀 사이드 버튼 -->
+  <div class="carousel_button_container">
+      <button type="button" class="carousel_prev">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-chevron-double-left" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+              <path fill-rule="evenodd" d="M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+          </svg>
+      </button>
+      <button type="button" class="carousel_next">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-chevron-double-right" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z"/>
+              <path fill-rule="evenodd" d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z"/>
+          </svg>
+      </button>
+  </div>
+
+  <!-- 캐러셀 중앙 버튼 -->
+  <div class="carousel_pagination">
+      <div class="carousel_circle"></div>
+      <div class="carousel_circle"></div>
+      <div class="carousel_circle"></div>
+      <div class="carousel_circle"></div>
+  </div>
+  </div>
+  <script>
+  const swiper = document.querySelector('.carousel_wrapper');
+  const prevButtons = document.querySelectorAll('.carousel_prev');
+  const nextButtons = document.querySelectorAll('.carousel_next');
+  const bullets = document.querySelectorAll('.carousel_circle');
+
+  let currentSlide = 0;
+
+  function showSlide(slideIndex) {
+      swiper.style.transform = `translateX(-${slideIndex * 900}px)`;
+      currentSlide = slideIndex;
+
+      bullets.forEach((bullet, index) => {
+          if (index === currentSlide) {
+              bullet.classList.add('active');
+          } else {
+              bullet.classList.remove('active');
+          }
+      });
+  }
+
+  prevButtons.forEach((prevButton) => {
+      prevButton.addEventListener('click', () => {
+          if (currentSlide > 0) {
+              showSlide(currentSlide - 1);
+          }
+      });
+  });
+
+  nextButtons.forEach((nextButton) => {
+      nextButton.addEventListener('click', () => {
+          if (currentSlide < 3) {
+              showSlide(currentSlide + 1);
+          }
+      });
+  });
+
+  bullets.forEach((bullet, index) => {
+      bullet.addEventListener('click', () => {
+          showSlide(index);
+      });
+  });
+
+  showSlide(0);
+
+</script>
+
+  <section>
+  <div id="news">
+    <h3>NEWS</h3>
+
+    <table>
+      <tr>
+        <td><a href="#">FCA 코리아, '2017' FCA 서비스 스킬...</a></td>
+      </tr>
+
+      <tr>
+        <td><a href="#">지프, '랭글러 언리미티드 JK 에디션...'</a></td>
+      </tr>  
+
+      <tr>
+        <td><a href="#">가장 스릴 넘치는 '지프 드라이브 스루'가... </a></td>
+      </tr>  
+
+    </table>
+
+  </div>
+
+  <div id="icon">
+    <div class="iconbox"><a href="#">
+      <img src="https://cdn1.iconfinder.com/data/icons/carbon-design-system-vol-7/32/shopping--catalog-512.png" alt="카달로그"></a>
+      <span><a href="#">카달로그</a></span>
+
+    </div>
+    <div class="iconbox"><a href="#">
+      <img src="https://cdn3.iconfinder.com/data/icons/teenyicons-outline-vol-1/15/cost-estimate-256.png" alt="견적"></a>
+      <span><a href="#">견적</a></span>
+
+    </div>
+
+
+    <div class="iconbox"><a href="#">
+      <img src="https://cdn1.iconfinder.com/data/icons/aami-web-internet/64/aami3-93-256.png" alt="1:1상담"></a>
+      <span><a href="#">1:1상담</a></span>
+
+    </div>
+
+
+
+    <div class="iconbox"><a href="#">
+      <img src="https://cdn1.iconfinder.com/data/icons/banking-36/128/person_Human_mancardriver_1-256.png" alt="시승예약"></a>
+      <span><a href="#">시승예약</a></span>
+
+    </div>
+
+    <div class="iconbox"><a href="#">
+      <img src="https://cdn1.iconfinder.com/data/icons/seo-internet-marketing-set-2/33/maintenance-256.png" alt="A/S"></a>
+      <span><a href="#">A/S</a></span>
+
+    </div>
+  </div>
+
+  <div id="brand">
+    <h3>Brand Story</h3>
+    <p><a href="#"> 모험은 모든 Jeep®가 보유한 DNA의 일부입니다. 인류가 호기심에 이끌려 천지 끝까지 탐험을 멈추지 않는 한 Jeep®는 계속해서 인류가 그 한계를 뛰어 넘도록 영감을 줄 것입니다.</a></p>
+    <h4><a href="#">마이크 맨리 Jeep 브랜드 대표이사 및 CEO</a></h4>
+
+  </div>
+
+
+  <div id="promotion">
+    <h3>이달의 프로모션</h3>
+    <p><a href="#">Jeep에서 마련한 최상의 구매 혜택을 소개해드립니다. 내게 딱 맞는 조건대로 부담 없이 선택하세요.</a></p>
+    <a href="#"><img src="https://www.motorgraph.com/news/photo/201704/12121_57775_58.jpg" alt="프로모션"></a>
+
+
+  </div>
+  <div id="camp">
+    <h3>JEECAMP</h3>
+    <p><a href="#">Jeep를 구매해주신 고객분들을 초대하여 서로의 정보를 교환 하고 친목을 다질 수 있는 캠프입니다.</a></p>
+    <a href="#"><img src="https://image.news1.kr/system/photos/2022/8/26/5545728/high.jpg/dims/optimizeg" alt="캠프"></a>
+
+  </div>
+
+
+  <div id="store">
+    <h3>매장및 서비스센터</h3>
+
+    <p><a href="#">JEEP의 매장과 서비스센터를 안내해 드립니다.</a></p>
+
+    <a href="#"><img src="https://image.zdnet.co.kr/2016/09/05/guyer73_AMfPAiVOH48I.jpg" alt="매장"></a>
+
+  </div>
+
+  </section>
+
+  <footer>
+
+  <div id="box">
+
+    <ul>
+      <li><a href="#">HOME</a></li>
+      <li>|</li>
+      <li><a href="#">BUSINESS PRACTICE OFFICE</a></li>
+      <li>|</li>
+      <li><a href="#">COPYRIGHT</a></li>
+      <li>|</li>
+      <li><a href="#">CONTACT US</a></li>
+      <li>|</li>
+      <li><a href="#">SITEMAP</a></li>
+      <li>|</li>
+      <li><a href="#">개인정보 처리방침</a></li>
+      <li>|</li>
+      <li><a href="#">Fiat Chrysler Automobiles (FCA)</a></li>
+      <li>|</li>
+      <li><a href="#">Chrysler</a></li>
+      <li>|</li>
+      <li><a href="#">FIAT®</a></li>
+      <li>|</li>
+
+    </ul>
+
+    <p>ⓒ 2016 Fiat Chrysler Automobiles (FCA). All Rights Reserved.<br>
+
+      Chrysler, Jeep 및 FIAT 로고는 Fiat Chrysler Automobiles (FCA)의 등록 상표입니다.</p>
+
+  </div>
+
+  </footer>
+
+
+
+  </body>
+  </html>
+
